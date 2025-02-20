@@ -5,5 +5,13 @@ form.addEventListener('submit', function(e){
     const inputNomeAtividade = document.getElementById('nome-atividade');
     const inputNotaAtividade = document.getElementById('nota-atividade');
 
-    alert(`atividade: ${inputNomeAtividade.value} - Nota: ${inputNotaAtividade.value}`);
+    let linha = '<tr>';
+    linha += `<td>${inputNomeAtividade.value}</td>`;
+    linha += `<td>${inputNotaAtividade.value}</td>`;
+    linha += `<td>${inputNotaAtividade.value >= 7 ? 'Aprovado' : 'Reprovado'}</td>`;
+    linha += `</tr>`;
+
+    const corpoTabela = document.querySelector('tbody');
+    corpoTabela.innerHTML = linha;
+
 });
