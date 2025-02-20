@@ -1,5 +1,8 @@
 const form = document.getElementById('form-atividade');
 let linhas = '';
+const imgAprovado = '<img src="./images/aprovado.png" alt="Emoji celebrando">';
+const imgReprovado = '<img src="./images/reprovado.png" alt="Emoji triste">';
+
 
 form.addEventListener('submit', function(e){
     e.preventDefault();
@@ -10,12 +13,15 @@ form.addEventListener('submit', function(e){
     let linha = '<tr>';
     linha += `<td>${inputNomeAtividade.value}</td>`;
     linha += `<td>${inputNotaAtividade.value}</td>`;
-    linha += `<td>${inputNotaAtividade.value >= 7 ? 'Aprovado' : 'Reprovado'}</td>`;
+    linha += `<td>${inputNotaAtividade.value >= 7 ? imgAprovado : imgReprovado}</td>`;
     linha += `</tr>`;
 
     linhas +=linha;
 
     const corpoTabela = document.querySelector('tbody');
     corpoTabela.innerHTML = linhas;
+
+    inputNomeAtividade.value= '';
+    inputNotaAtividade.value='';
 
 });
